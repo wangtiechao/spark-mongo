@@ -15,7 +15,7 @@ object ScalaWordCount {
     mongoConfig.set("mongo.input.uri","mongodb://localhost:27017/study.posts")
     val documents = sc.newAPIHadoopRDD(mongoConfig,classOf[com.mongodb.hadoop.MongoInputFormat],classOf[Object],classOf[BSONObject]) 
     val countsRDD = documents.flatMap(arg => {
-      var str = arg._2.get("text").toString
+      var str = arg._2.get("name").toString
       str = str.toLowerCase().replaceAll("[.,!?\n]", " ")
       str.split(" ")
     })
@@ -24,7 +24,7 @@ object ScalaWordCount {
 
     val outputConfig = new Configuration()
     outputConfig.set("mongo.output.uri","mongodb://localhost:27017/study.pp")
-    documents.saveAsNewAPIHadoopFile(
+    countsRDD.saveAsNewAPIHadoopFile(
     "hdfs://localhost:8020/root",
     classOf[Object],
     classOf[BSONObject],
