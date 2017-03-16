@@ -6,18 +6,19 @@ SimpleApp is analysis hdfs file, ScalaWordCount is analysis mongodb data
 Environmental
 -------------
 
-* hadoop-2.3.0
-* spark-1.5.1
-* scala-2.11.7
-* sbt-0.13.9
-* mongodb-linux-x86_64-2.6.11
-
+* hadoop-2.7.3
+* spark-2.1.0
+* scala-2.10.6
+* sbt-0.13.13
+* jdk-1.7.0_121
+* mongodb-3.4.2
+* redis3.2.8
 
 Prerequisites
 -------------
 
-* mongo-hadoop-core-1.3.2.jar
-* mongo-java-driver-2.11.4.jar
+* mongo-hadoop-core-1.4.0.jar
+* mongo-java-driver-3.4.2.jar
 
 Add as jar packages to SPARK_CLASSPATH
 
